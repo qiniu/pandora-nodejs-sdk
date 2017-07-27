@@ -2,7 +2,9 @@
 
 ### 快速使用
 ```
-    yarn add pandora-nodejs-sdk
+npm install pandora-nodejs-sdk --save
+// 或者
+yarn add pandora-nodejs-sdk
 ```
 
 ```javascript

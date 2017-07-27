@@ -1,19 +1,24 @@
 var fetch = require('node-fetch');
-var parseSerires = require('./utils').parseSerires
-var getResourceUrl = require('./utils').getResourceUrl
+var parseSeries = require('./utils').parseSeries
+var getResourcePath = require('./utils').getResourcePath
 
-function send (auth, repoName, serires) {
+function send (auth, repoName, series) {
   var token =  auth.getToken(repoName)
-  return fetch('https://pipeline.qiniu.com' + getResourceUrl(repoName), {
+  return fetch('https://pipeline.qiniu.com' + getResourcePath(repoName), {
     method: 'POST',
     headers: {
       'Content-Type': 'text/plain',
       'Authorization': token
     },
-    body: parseSerires(serires)
+    body: parseSeries(series)
   })
-  .then(function(res){
+  .then(function(res) {
     return res.json()
+  })
+  .then(function(res) {
+    if (res.error) {
+      throw res
+    }
   })
 }
 
