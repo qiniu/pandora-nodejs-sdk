@@ -1,5 +1,6 @@
-const { isObject, isArray } = require('lodash')
-const path = require('path')
+var isObject = require('lodash').isObject
+var isArray = require('lodash').isArray
+var path = require('path')
 
 function parseSerires(serires) {
   if (isArray(serires)) {
@@ -12,7 +13,7 @@ function parseSerires(serires) {
 
 function parseObjectSerires(serires) {
   return Object.keys(serires).map(function(key) {
-    const value = serires[key]
+    var value = serires[key]
     if (isObject(value) || isArray(value)) {
       return wrapKeyAndValue(key, JSON.stringify(value))  
     }
@@ -29,7 +30,7 @@ function escape(s) {
 }
 
 function wrapKeyAndValue(key, value) {
-  return `${key}=${value}`
+  return key + '=' + value
 }
 
 function getResourceUrl(repoName) {

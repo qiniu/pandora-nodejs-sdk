@@ -1,15 +1,19 @@
-const fetch = require('node-fetch');
-const { parseSerires, getResourceUrl } = require('./utils')
+var fetch = require('node-fetch');
+var parseSerires = require('./utils').parseSerires
+var getResourceUrl = require('./utils').getResourceUrl
 
 function send (auth, repoName, serires) {
-  const token =  auth.getToken(repoName)
-  return fetch(`https://pipeline.qiniu.com${getResourceUrl(repoName)}`, {
+  var token =  auth.getToken(repoName)
+  return fetch('https://pipeline.qiniu.com' + getResourceUrl(repoName), {
     method: 'POST',
     headers: {
       'Content-Type': 'text/plain',
       'Authorization': token
     },
     body: parseSerires(serires)
+  })
+  .then(function(res){
+    return res.json()
   })
 }
 
