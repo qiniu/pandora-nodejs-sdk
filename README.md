@@ -17,11 +17,11 @@ const auth = new Auth(
 )
 
 const points = [
-  { name: foo, age: 23},
-  { name: bar, age: 24}
+  { name: 'foo', age: 23},
+  { name: 'bar', age: 24}
 ]
 
-send(auth, 'your_repoName',  books).then(
+send(auth, 'your_repoName',  points).then(
   () => console.log('success'),
   err => console.log(err)
 ) 
