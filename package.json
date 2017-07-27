@@ -1,0 +1,17 @@
+{
+  "name": "pandora-nodejs-sdk",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jarvanycb@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "btoa": "^1.1.2",
+    "lodash": "^4.17.4",
+    "node-fetch": "^1.7.1",
+    "utility": "^1.12.0"
+  }
+}
