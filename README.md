@@ -1,8 +1,11 @@
+# Pandora SDK for Nodejs
+
+### 快速使用
 ```
     yarn add pandora-nodejs-sdk
 ```
 
-```javascript```
+```javascript
 
 const { send, Auth } = require('./index')
 
